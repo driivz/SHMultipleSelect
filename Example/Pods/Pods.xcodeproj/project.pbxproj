@@ -93,7 +93,6 @@
 		9DEFCD2669648BF58EB0DC1105A6F664 /* NSValue+Expecta.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3AB05F6FA9C3471B62FCC19BE4C130 /* NSValue+Expecta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A4007C2D1F9D1B8E3D5D03327ABC3DE1 /* FBSnapshotTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391AC11161A549EB676DC4E9862EF343 /* FBSnapshotTestController.m */; };
 		A551619A45AF380FAE95ADEB702ECA6A /* SpectaTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E1A6663BD69A9E2E6E90448A2EF2D253 /* SpectaTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A7D1FFEDADEF33B4C71C05EC59ED39D0 /* SHMultipleSelect.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE79681FA72C7FE6A377DF447205A7CB /* SHMultipleSelect.bundle */; };
 		A9474D95EAF21842364EA8B6429AB930 /* EXPMatchers+beKindOf.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D5C8DFD39A5E8D51BB3F1FEEACF627A /* EXPMatchers+beKindOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA117766EFB96A53B5A3594A8001CF14 /* UIView+SHAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD9C1A3217BB82DA26F38F155076E97 /* UIView+SHAdditions.m */; };
 		ABA93B67BF1B2D394B12CF553520953E /* EXPMatchers+contain.h in Headers */ = {isa = PBXBuildFile; fileRef = AEA0724003A65C978CF91934EAC5AAE0 /* EXPMatchers+contain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -202,13 +201,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8ABD539FF9C3557604AD6A6EE5AEAB7B;
 			remoteInfo = SHMultipleSelect;
-		};
-		DC98C8E3C9D3901AB98794047ED12A12 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D73BE5CC5AEB6EAC50D5BEF383BA394F;
-			remoteInfo = "SHMultipleSelect-SHMultipleSelect";
 		};
 		F2AFEFF528A82C769AC0A171A9682301 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -368,7 +360,6 @@
 		C9CA545DB0B7AF40EF807DB093D6009D /* SPTCallSite.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTCallSite.m; path = Specta/Specta/SPTCallSite.m; sourceTree = "<group>"; };
 		CB07A0FFFFC28642237A4245C240F4CA /* Expecta-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Expecta-umbrella.h"; sourceTree = "<group>"; };
 		CD7A9D9653C2810968F1B6C83DE27D2B /* Expecta+Snapshots-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Expecta+Snapshots-umbrella.h"; sourceTree = "<group>"; };
-		CE79681FA72C7FE6A377DF447205A7CB /* SHMultipleSelect.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMultipleSelect.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		D352955349573D874C4C67D3715A1F91 /* FBSnapshotTestCasePlatform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCasePlatform.m; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.m; sourceTree = "<group>"; };
 		D55CD65A639F927A66282B682698F273 /* Expecta+Snapshots-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Expecta+Snapshots-dummy.m"; sourceTree = "<group>"; };
 		D845F5C668FEB6A5CD865FAFC7E690A0 /* SHMultipleSelect.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SHMultipleSelect.modulemap; sourceTree = "<group>"; };
@@ -441,13 +432,6 @@
 				5344A4793B4833D21596E9F7FB1841E2 /* FBSnapshotTestCase.framework in Frameworks */,
 				28BDFC581A1C4054A7689412F4F9F90C /* Foundation.framework in Frameworks */,
 				D999B4A2BD2569E03498B2A391C599D5 /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AC0F54BB8D962143FE44C286107B8822 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,7 +599,6 @@
 				664992809119B7CB50B07A8A6CDCDC4E /* FBSnapshotTestCase.framework */,
 				223B0CBA6B7BA5294E3A1E01767F7266 /* Pods_SHMultipleSelect_Example.framework */,
 				269317A4D4412617738DE737AC5AC904 /* Pods_SHMultipleSelect_Tests.framework */,
-				CE79681FA72C7FE6A377DF447205A7CB /* SHMultipleSelect.bundle */,
 				AD445BFD6170EE2076960171E74B76F4 /* SHMultipleSelect.framework */,
 				9F913A087BE35134BCF5D4C1796CF1A6 /* Specta.framework */,
 			);
@@ -1010,7 +993,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				5D5C7E8ADF377F0A7A50688E79DD8808 /* PBXTargetDependency */,
 			);
 			name = SHMultipleSelect;
 			productName = SHMultipleSelect;
@@ -1057,23 +1039,6 @@
 			productReference = 223B0CBA6B7BA5294E3A1E01767F7266 /* Pods_SHMultipleSelect_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D73BE5CC5AEB6EAC50D5BEF383BA394F /* SHMultipleSelect-SHMultipleSelect */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EF28945CAAB14E85E81636FD04790A09 /* Build configuration list for PBXNativeTarget "SHMultipleSelect-SHMultipleSelect" */;
-			buildPhases = (
-				FA03A4DD6158C4424A3A0B48042523A9 /* Sources */,
-				AC0F54BB8D962143FE44C286107B8822 /* Frameworks */,
-				5748258E651FEB0CFAE4A955C1283E1E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "SHMultipleSelect-SHMultipleSelect";
-			productName = "SHMultipleSelect-SHMultipleSelect";
-			productReference = CE79681FA72C7FE6A377DF447205A7CB /* SHMultipleSelect.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 		E6BFD07EC0087BC39DAB869D93E32C28 /* FBSnapshotTestCase */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F99D47EA39E9620A233148993E26DF75 /* Build configuration list for PBXNativeTarget "FBSnapshotTestCase" */;
@@ -1115,7 +1080,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0830;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1135,7 +1100,6 @@
 				CA4436A22532CC63F6B3B112B1DD71CF /* Pods-SHMultipleSelect_Example */,
 				A6F2541382D073EC6586212469493248 /* Pods-SHMultipleSelect_Tests */,
 				8ABD539FF9C3557604AD6A6EE5AEAB7B /* SHMultipleSelect */,
-				D73BE5CC5AEB6EAC50D5BEF383BA394F /* SHMultipleSelect-SHMultipleSelect */,
 				4D6D577CADF7971017F383BCEC1C8A45 /* Specta */,
 			);
 		};
@@ -1143,14 +1107,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		31714E566C5BE0573659521EEF778432 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A7D1FFEDADEF33B4C71C05EC59ED39D0 /* SHMultipleSelect.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5748258E651FEB0CFAE4A955C1283E1E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1269,13 +1225,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA03A4DD6158C4424A3A0B48042523A9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1296,12 +1245,6 @@
 			name = "Expecta+Snapshots";
 			target = 5A2688FF6D9CA2CE2D540238F8C088C3 /* Expecta+Snapshots */;
 			targetProxy = 6B92430251600B9B71469BD62170BD7F /* PBXContainerItemProxy */;
-		};
-		5D5C7E8ADF377F0A7A50688E79DD8808 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SHMultipleSelect-SHMultipleSelect";
-			target = D73BE5CC5AEB6EAC50D5BEF383BA394F /* SHMultipleSelect-SHMultipleSelect */;
-			targetProxy = DC98C8E3C9D3901AB98794047ED12A12 /* PBXContainerItemProxy */;
 		};
 		609376F61E42E0349083CC32E6B74DAE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1336,23 +1279,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0428B1C581E7D7618710243AAB31806D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 781065DFAD55C3FB7FC83AF1D82E92FC /* SHMultipleSelect-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = SHMultipleSelect;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		12085D95DB565E8B656BC65CA516D58B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C35DD8669B602A3F11D56117E9568CEE /* Specta-Private.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1362,10 +1293,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Specta/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Specta/Specta.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Specta;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1379,7 +1311,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 38CECA4569FC9BA730077BE8F6E854F9 /* Expecta-Private.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1389,10 +1321,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Expecta/Expecta-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Expecta/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Expecta/Expecta.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Expecta;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1415,13 +1348,17 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1429,7 +1366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
@@ -1440,7 +1377,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E4BDBAA79E1780F09E9EEB45DD044C4 /* Expecta+Snapshots-Private.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1450,10 +1387,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Expecta+Snapshots/Expecta+Snapshots-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Expecta+Snapshots/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Expecta+Snapshots/Expecta+Snapshots.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Expecta_Snapshots;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1467,7 +1405,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 781065DFAD55C3FB7FC83AF1D82E92FC /* SHMultipleSelect-Private.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1477,10 +1415,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SHMultipleSelect/SHMultipleSelect-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SHMultipleSelect/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SHMultipleSelect/SHMultipleSelect.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = SHMultipleSelect;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1494,7 +1433,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 38CECA4569FC9BA730077BE8F6E854F9 /* Expecta-Private.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1504,10 +1443,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Expecta/Expecta-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Expecta/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Expecta/Expecta.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Expecta;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1521,7 +1461,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5F9A8CA822FA386051D90E43E337DE10 /* Pods-SHMultipleSelect_Example.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1530,13 +1470,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SHMultipleSelect_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-SHMultipleSelect_Example/Pods-SHMultipleSelect_Example.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_SHMultipleSelect_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1550,7 +1491,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E4BDBAA79E1780F09E9EEB45DD044C4 /* Expecta+Snapshots-Private.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1560,10 +1501,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Expecta+Snapshots/Expecta+Snapshots-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Expecta+Snapshots/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Expecta+Snapshots/Expecta+Snapshots.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Expecta_Snapshots;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1586,13 +1528,18 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1605,7 +1552,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
@@ -1616,7 +1563,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 81D77F6838F35E7F1212B23108865E26 /* Pods-SHMultipleSelect_Tests.release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1625,13 +1572,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SHMultipleSelect_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-SHMultipleSelect_Tests/Pods-SHMultipleSelect_Tests.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_SHMultipleSelect_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1645,7 +1593,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E7E1922BB24B9611895C1352A21EB009 /* FBSnapshotTestCase-Private.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1655,10 +1603,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FBSnapshotTestCase/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FBSnapshotTestCase;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1672,7 +1621,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E7E1922BB24B9611895C1352A21EB009 /* FBSnapshotTestCase-Private.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1682,10 +1631,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FBSnapshotTestCase/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FBSnapshotTestCase;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1699,7 +1649,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 781065DFAD55C3FB7FC83AF1D82E92FC /* SHMultipleSelect-Private.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1709,10 +1659,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SHMultipleSelect/SHMultipleSelect-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SHMultipleSelect/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SHMultipleSelect/SHMultipleSelect.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = SHMultipleSelect;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1722,23 +1673,11 @@
 			};
 			name = Release;
 		};
-		CC86BA174C10BD2FAD337337CBA0B3C0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 781065DFAD55C3FB7FC83AF1D82E92FC /* SHMultipleSelect-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = SHMultipleSelect;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		D619587C8643FC1DCC548FFBFF9EF087 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9C95DF45274ADDD8D65A1AC3344AF632 /* Pods-SHMultipleSelect_Tests.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1747,13 +1686,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SHMultipleSelect_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-SHMultipleSelect_Tests/Pods-SHMultipleSelect_Tests.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_SHMultipleSelect_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1767,7 +1707,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C35DD8669B602A3F11D56117E9568CEE /* Specta-Private.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1777,10 +1717,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Specta/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Specta/Specta.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Specta;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1794,7 +1735,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5FA1E8366118A5CAB1E2094B653B8ED2 /* Pods-SHMultipleSelect_Example.release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1803,13 +1744,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SHMultipleSelect_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-SHMultipleSelect_Example/Pods-SHMultipleSelect_Example.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_SHMultipleSelect_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1881,15 +1823,6 @@
 			buildConfigurations = (
 				4E124595164D36F88DC83FECFEC902A4 /* Debug */,
 				262C2A38A7AA70B9E4E0E159FE94D52A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EF28945CAAB14E85E81636FD04790A09 /* Build configuration list for PBXNativeTarget "SHMultipleSelect-SHMultipleSelect" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CC86BA174C10BD2FAD337337CBA0B3C0 /* Debug */,
-				0428B1C581E7D7618710243AAB31806D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
