@@ -10,8 +10,7 @@
 
 @implementation UIImage (SHAdditions)
 
-+ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size
-{
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
     UIImage *img = nil;
     
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
