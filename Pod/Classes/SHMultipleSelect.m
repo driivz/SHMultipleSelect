@@ -201,8 +201,8 @@ const int selectionTopMargin = 30;
                      }
                      completion:^(BOOL finished) {
                          [self removeFromSuperview];
-                         if ([_delegate respondsToSelector:@selector(multipleSelectView:clickedBtnAtIndex:withSelectedIndexPaths:)]) {
-                             [_delegate multipleSelectView:self clickedBtnAtIndex:sender.tag withSelectedIndexPaths:_table.indexPathsForSelectedRows];
+                         if ([self->_delegate respondsToSelector:@selector(multipleSelectView:clickedBtnAtIndex:withSelectedIndexPaths:)]) {
+                             [self->_delegate multipleSelectView:self clickedBtnAtIndex:sender.tag withSelectedIndexPaths:self->_table.indexPathsForSelectedRows];
                          }
                      }];
 }

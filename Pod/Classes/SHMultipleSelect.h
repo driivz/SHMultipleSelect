@@ -15,9 +15,13 @@
 @protocol SHMultipleSelectDelegate <NSObject>
 
 @optional
-- (void)multipleSelectView:(SHMultipleSelect*)multipleSelectView clickedBtnAtIndex:(NSInteger)clickedBtnIndex withSelectedIndexPaths:(NSArray*)selectedIndexPaths;
-- (NSString*)multipleSelectView:(SHMultipleSelect*)multipleSelectView titleForRowAtIndexPath:(NSIndexPath*)indexPath;
-- (BOOL)multipleSelectView:(SHMultipleSelect*)multipleSelectView setSelectedForRowAtIndexPath:(NSIndexPath*)indexPath;
+- (void)multipleSelectView:(SHMultipleSelect*)multipleSelectView
+         clickedBtnAtIndex:(NSInteger)clickedBtnIndex
+    withSelectedIndexPaths:(NSArray *)selectedIndexPaths;
+
+- (NSString *)multipleSelectView:(SHMultipleSelect *)multipleSelectView
+          titleForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)multipleSelectView:(SHMultipleSelect *)multipleSelectView setSelectedForRowAtIndexPath:(NSIndexPath*)indexPath;
 @end
 
 
