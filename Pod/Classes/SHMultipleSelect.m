@@ -10,45 +10,34 @@
 
 #define MAIN_SCREEN_RECT [[UIScreen mainScreen] bounds]
 
-@interface SHMultipleSelect ()
+@interface SHMultipleSelect () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, weak) UITableView *table;
+
 - (void)btnClick:(UIButton *)sender;
+
 @end
 
+@implementation SHMultipleSelect
 
-@implementation SHMultipleSelect {
-    //To preserve selection after selectAll has been selected and then deselected
-    NSArray *selectedIBackup;
-}
+const CGFloat kSelectionRowHeight  = 40.0;
+const CGFloat kSelectionBtnHeight  = 40.0;
+const CGFloat kSelectionLeftMargin = 10.0;
+const CGFloat kSelectionTopMargin  = 30.0;
 
-const int selectionRowHeight = 40;
-const int selectionBtnHeight = 40;
-const int selectionLeftMargin = 10;
-const int selectionTopMargin = 30;
+const CGFloat kAnimationTimeInterval  = 0.2;
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.frame = CGRectMake(0, 0, MAIN_SCREEN_RECT.size.width, MAIN_SCREEN_RECT.size.height);
-        self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
-        self.layer.opacity = 0;
+        self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.6];
+        self.layer.opacity = 0.0;
         
-        _table = [[UITableView alloc] init];
-        _table.dataSource = self;
-        _table.delegate = self;
-        _table.scrollEnabled = NO;
-        _table.allowsMultipleSelectionDuringEditing = YES;
-        [_table setEditing:YES animated:NO];
-        
-        _tableScroll = [[UIScrollView alloc] init];
-        
-        _cancelBtn = [[UIButton alloc] init];
-        _doneBtn = [[UIButton alloc] init];
-        _btnsSeparator = [[UIView alloc] init];
-        
-        _coverView = [[UIView alloc] init];
-        
-        self.hasSelectAll = NO;
+        _hasSelectAll = NO;
+        _onlyOneChoice = NO;
     }
+    
     return self;
 }
 
@@ -59,7 +48,7 @@ const int selectionTopMargin = 30;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _rowsCount;
+    return self.rowsCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,140 +58,173 @@ const int selectionTopMargin = 30;
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    NSString* text = nil;
-    if ([_delegate respondsToSelector:@selector(multipleSelectView:titleForRowAtIndexPath:)]) {
-        text = [_delegate multipleSelectView:self titleForRowAtIndexPath:indexPath];
+    
+    NSString *text = nil;
+    if ([self.delegate respondsToSelector:@selector(multipleSelectView:titleForRowAtIndexPath:)]) {
+        text = [self.delegate multipleSelectView:self titleForRowAtIndexPath:indexPath];
     }
     cell.textLabel.text = text;
     
     BOOL selected = NO;
-    if ([_delegate respondsToSelector:@selector(multipleSelectView:setSelectedForRowAtIndexPath:)]) {
-        selected = [_delegate multipleSelectView:self setSelectedForRowAtIndexPath:indexPath];
+    if ([self.delegate respondsToSelector:@selector(multipleSelectView:setSelectedForRowAtIndexPath:)]) {
+        selected = [self.delegate multipleSelectView:self setSelectedForRowAtIndexPath:indexPath];
     }
     
     if (selected) {
-        [_table selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+        [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
     }
     
     return cell;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // deselecting all before
-    for (int i = 0; i < self.rowsCount; i++) {
-        [_table deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:NO];
+    if (self.onlyOneChoice) {
+        // deselecting all before
+        for (NSUInteger i = 0; i < self.rowsCount; ++i) {
+            [tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:NO];
+        }
     }
-
+    
     return indexPath;
 }
 
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.hasSelectAll && (indexPath.row==0)) {
-        
-        selectedIBackup = _table.indexPathsForSelectedRows;
-        
-        for (int i=1; i<self.rowsCount; i++) {
-            [_table selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.delegate respondsToSelector:@selector(multipleSelectView:didSelectRowAtIndexPath:)]) {
+        [self.delegate multipleSelectView:self didSelectRowAtIndexPath:indexPath];
+    }
+    
+    if (self.hasSelectAll && (indexPath.row == 0)) {
+        for (NSUInteger i = 1; i < self.rowsCount; ++i) {
+            [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]
+                                   animated:NO
+                             scrollPosition:UITableViewScrollPositionNone];
         }
     }
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.hasSelectAll && (indexPath.row==0)) {
-        for (int i=1; i<self.rowsCount; i++) {
-            [_table deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:NO];
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.delegate respondsToSelector:@selector(multipleSelectView:didDeselectRowAtIndexPath:)]) {
+        [self.delegate multipleSelectView:self didDeselectRowAtIndexPath:indexPath];
+    }
+    
+    if (self.hasSelectAll && (indexPath.row == 0)) {
+        for (NSUInteger i = 1; i < self.rowsCount; ++i) {
+            [tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:NO];
         }
     }
     else if (self.hasSelectAll) {
-        [_table deselectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO];
+        [tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO];
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return selectionRowHeight;
+    return kSelectionRowHeight;
 }
 
 - (void)show {
     
     //Fixes an issue when triggerring while keyboard is showing
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
-
-    [UIView animateWithDuration:0.2 animations:^{
+    
+    [UIView animateWithDuration:kAnimationTimeInterval animations:^{
         self.layer.opacity = 1;
     }];
     
-    _coverView.frame = CGRectMake(selectionLeftMargin, 0, MAIN_SCREEN_RECT.size.width - (2 * selectionLeftMargin), 0);
-    _coverView.layer.cornerRadius = 7;
-    _coverView.clipsToBounds = YES;
-    _coverView.backgroundColor = [UIColor whiteColor];
-    [self addSubview:_coverView];
+    UIView *coverView = [[UIView alloc] initWithFrame:CGRectMake(kSelectionLeftMargin, 0.0,
+                                                                 MAIN_SCREEN_RECT.size.width - (2 * kSelectionLeftMargin), 0.0)];
     
-    _tableScroll.frame = CGRectMake(0, 0, _coverView.width, 0);
+    coverView.layer.cornerRadius = 7;
+    coverView.clipsToBounds = YES;
+    coverView.backgroundColor = [UIColor whiteColor];
+    [self addSubview:coverView];
+    
+    UIScrollView *tableScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 0.0, coverView.width, 0.0)];
     
     // table settings
-    CGFloat allRowsHeight = selectionRowHeight * _rowsCount;
+    CGFloat allRowsHeight = kSelectionRowHeight * self.rowsCount;
     
     if (allRowsHeight + 100 > self.height) {
-        _coverView.top = selectionTopMargin;
-        _coverView.height = self.height - (2 * selectionTopMargin);
+        coverView.top = kSelectionTopMargin;
+        coverView.height = self.height - (2 * kSelectionTopMargin);
     }
     else {
-        _coverView.top = (self.height - (allRowsHeight + selectionBtnHeight))/2;
-        _coverView.height = allRowsHeight + selectionBtnHeight;
+        coverView.top = (self.height - (allRowsHeight + kSelectionBtnHeight)) / 2;
+        coverView.height = allRowsHeight + kSelectionBtnHeight;
     }
     
-    _tableScroll.top = 0;
-    _tableScroll.height = _coverView.height - selectionBtnHeight;
+    tableScroll.top = 0;
+    tableScroll.height = coverView.height - kSelectionBtnHeight;
     
-    _tableScroll.contentSize = CGSizeMake(_tableScroll.width, allRowsHeight);
-    [_coverView addSubview:_tableScroll];
+    tableScroll.contentSize = CGSizeMake(tableScroll.width, allRowsHeight);
     
-    _table.frame = CGRectMake(0, 0, _tableScroll.width, allRowsHeight);
-    [_tableScroll addSubview:_table];
+    [coverView addSubview:tableScroll];
     
+    UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, tableScroll.width, allRowsHeight)
+                                                      style:UITableViewStylePlain];
+    table.dataSource = self;
+    table.delegate = self;
+    table.scrollEnabled = NO;
+    table.allowsMultipleSelectionDuringEditing = YES;
+    [table setEditing:YES animated:NO];
+    
+    [tableScroll addSubview:table];
+    _table = table;
+    
+    CGSize imageSize = CGSizeMake(10.0, 10.0);
     UIImage *btnImageNormal = [[UIImage imageWithColor:[UIColor whiteColor]
-                                                  size:CGSizeMake(10, 10)] stretchableImageWithLeftCapWidth:3 topCapHeight:3];
-    UIImage *btnImageHighlighted = [[UIImage imageWithColor:[UIColor colorWithRed:208/255.0f green:208/255.0f blue:208/255.0f alpha:1.0f]
-                                                       size:CGSizeMake(10, 10)] stretchableImageWithLeftCapWidth:3 topCapHeight:3];
+                                                  size:imageSize] stretchableImageWithLeftCapWidth:3 topCapHeight:3];
+    UIImage *btnImageHighlighted = [[UIImage imageWithColor:[UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1.0]
+                                                       size:imageSize] stretchableImageWithLeftCapWidth:3 topCapHeight:3];
     
     // _cancelBtn settings
-    _cancelBtn.frame = CGRectMake(0, _tableScroll.bottom, _coverView.width/2, selectionBtnHeight);
-    _cancelBtn.tag = 0;
-    [_cancelBtn setTitle:@"Cancel" forState:UIControlStateNormal];
-    [_cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_cancelBtn setBackgroundImage:btnImageNormal forState:UIControlStateNormal];
-    [_cancelBtn setBackgroundImage:btnImageHighlighted forState:UIControlStateHighlighted];
-    [_cancelBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [_coverView addSubview:_cancelBtn];
+    UIButton *cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(0.0, tableScroll.bottom,
+                                                                     coverView.width / 2.0, kSelectionBtnHeight)];
+    cancelBtn.tag = 0;
+    [cancelBtn setTitle:NSLocalizedString(@"Cancel", @"Cancel") forState:UIControlStateNormal];
+    [cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [cancelBtn setBackgroundImage:btnImageNormal forState:UIControlStateNormal];
+    [cancelBtn setBackgroundImage:btnImageHighlighted forState:UIControlStateHighlighted];
+    [cancelBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [coverView addSubview:cancelBtn];
     
     // _doneBtn settings
-    _doneBtn.frame = CGRectMake(_cancelBtn.right, _tableScroll.bottom, _coverView.width/2, selectionBtnHeight);
-    _doneBtn.tag = 1;
-    [_doneBtn setTitle:@"Done" forState:UIControlStateNormal];
-    [_doneBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_doneBtn setBackgroundImage:btnImageNormal forState:UIControlStateNormal];
-    [_doneBtn setBackgroundImage:btnImageHighlighted forState:UIControlStateHighlighted];
-    [_doneBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [_coverView addSubview:_doneBtn];
+    UIButton *doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(cancelBtn.right,
+                                                                   tableScroll.bottom,
+                                                                   coverView.width / 2.0,
+                                                                   kSelectionBtnHeight)];
+    doneBtn.tag = 1;
+    [doneBtn setTitle:NSLocalizedString(@"Done", @"Done") forState:UIControlStateNormal];
+    [doneBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [doneBtn setBackgroundImage:btnImageNormal forState:UIControlStateNormal];
+    [doneBtn setBackgroundImage:btnImageHighlighted forState:UIControlStateHighlighted];
+    [doneBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [coverView addSubview:doneBtn];
     
     // btnsSeparator settings
-    _btnsSeparator.frame = CGRectMake(_cancelBtn.right, _tableScroll.bottom, 0.7, selectionBtnHeight);
-    _btnsSeparator.backgroundColor = [UIColor lightGrayColor];
-    [_coverView addSubview:_btnsSeparator];
+    UIView *btnsSeparator = [[UIView alloc] initWithFrame:CGRectMake(cancelBtn.right,
+                                                                     tableScroll.bottom,
+                                                                     0.7,
+                                                                     kSelectionBtnHeight)];
+    btnsSeparator.backgroundColor = [UIColor lightGrayColor];
+    [coverView addSubview:btnsSeparator];
     
     [[UIApplication sharedApplication].delegate.window addSubview:self];
 }
 
-- (void)btnClick:(UIButton *)sender {
-    [UIView animateWithDuration:0.2
+- (IBAction)btnClick:(UIButton *)sender {
+    __weak typeof(self) weak = self;
+    [UIView animateWithDuration:kAnimationTimeInterval
                      animations:^{
-                         self.layer.opacity = 0;
+                         weak.layer.opacity = 0;
                      }
                      completion:^(BOOL finished) {
-                         [self removeFromSuperview];
-                         if ([self->_delegate respondsToSelector:@selector(multipleSelectView:clickedBtnAtIndex:withSelectedIndexPaths:)]) {
-                             [self->_delegate multipleSelectView:self clickedBtnAtIndex:sender.tag withSelectedIndexPaths:self->_table.indexPathsForSelectedRows];
+                         [weak removeFromSuperview];
+                         if ([weak.delegate respondsToSelector:@selector(multipleSelectView:clickedBtnAtIndex:withSelectedIndexPaths:)]) {
+                             [weak.delegate multipleSelectView:weak
+                                             clickedBtnAtIndex:sender.tag
+                                        withSelectedIndexPaths:weak.table.indexPathsForSelectedRows];
                          }
                      }];
 }

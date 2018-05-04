@@ -15,29 +15,33 @@
 @protocol SHMultipleSelectDelegate <NSObject>
 
 @optional
-- (void)multipleSelectView:(SHMultipleSelect*)multipleSelectView
+- (void)multipleSelectView:(SHMultipleSelect *)multipleSelectView
          clickedBtnAtIndex:(NSInteger)clickedBtnIndex
     withSelectedIndexPaths:(NSArray *)selectedIndexPaths;
 
-- (NSString *)multipleSelectView:(SHMultipleSelect *)multipleSelectView
-          titleForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (BOOL)multipleSelectView:(SHMultipleSelect *)multipleSelectView setSelectedForRowAtIndexPath:(NSIndexPath*)indexPath;
+- (NSString*)multipleSelectView:(SHMultipleSelect *)multipleSelectView
+         titleForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)multipleSelectView:(SHMultipleSelect *)multipleSelectView
+   didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)multipleSelectView:(SHMultipleSelect *)multipleSelectView
+ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath;
+
+- (BOOL)multipleSelectView:(SHMultipleSelect *)multipleSelectView
+setSelectedForRowAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 
-@interface SHMultipleSelect : UIView<UITableViewDataSource, UITableViewDelegate> {
-    UITableView* _table;
-    UIScrollView* _tableScroll;
-    UIButton* _cancelBtn;
-    UIButton* _doneBtn;
-    UIView* _btnsSeparator;
-    UIView* _coverView;
-}
+@interface SHMultipleSelect : UIView
 
 @property (nonatomic, assign) id<SHMultipleSelectDelegate> delegate;
 @property (nonatomic, assign) NSInteger rowsCount;
 
 @property (nonatomic, assign) BOOL hasSelectAll;
+
+@property (nonatomic, assign) BOOL onlyOneChoice;
 
 - (void)show;
 
